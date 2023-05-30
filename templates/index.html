@@ -1,0 +1,244 @@
+<html>
+<head>
+    <title>Fake News Detection</title>
+    <style>
+        .results h1 {
+            font-size: 5rem;
+        }
+        body {
+            width: 100%;
+            font-family: 'Montserrat';
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-family: "Niagara Engraved";
+        }
+
+        .coloured-section {
+            background-color: #000;
+        }
+
+        #main .container-fluid {
+            padding: 3% 15% 7%;
+            background: rgba(0,0,0,0.70) url("static/fake3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode: darken;
+            padding: %;
+        }
+
+        .title {
+            padding-top: 1%;
+            padding-bottom: 5%;
+            text-align: center;
+        }
+
+        .a1 {
+            font-family: 'Segoe Print';
+            font-size: 5rem;
+            color: violet;
+            padding: %;
+        }
+
+        .big-heading {
+            text-align: center;
+            font-family: "Rockwell";
+            font-weight: 70;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .textbox {
+            padding: 2%;
+        }
+
+        .form-rounded {
+            border-radius: 0.5rem;
+            height: 60px;
+        }
+
+        .text {
+            text-align: center;
+            font-size: 3.3rem;
+            font-weight: 30;
+            padding: 10%;
+        }
+
+        .text::placeholder {
+            text-align: center;
+            font-family: "Montserrat";
+            font-size: 3.7rem;
+            font-weight: 100;
+        }
+
+        .submit-button {
+            font-family: "Rockwell";
+            margin-top: 3%;
+            padding: 3%;
+            font-size: 1.5rem;
+            color: white;
+            background-color: black;
+        }
+
+        .search {
+            text-align: right;
+            font-size: 30px;
+            float: right;
+            background-color: black;
+            padding: 20;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            text-decoration: none;
+        }
+
+        a {
+            font-size: 2rem;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            cursor: pointer;
+            font-size: 28px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 9px;
+            background-color: black;
+            margin: 3px;
+        }
+
+        .navbar a {
+            float: right;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn,
+        .dropbtn:focus,
+        .submit-button:hover {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: red;
+            min-width: 50px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: blue;
+            background-color: black;
+            padding: 10px;
+            display: block;
+            text-align: left;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            /* font-family: Arial, Helvetica, sans-serif; */
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="search">
+        <input list="online" placeholder="Search....">
+    </div>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="https://www.newsforyouonline.com/?utm_medium=ppc&utm_source=adwords&utm_campaign=News+For+You&utm_term=simple%20news&hsa_kw=simple%20news&hsa_ad=388269025416&hsa_src=g&hsa_cam=643807803&hsa_acc=9692907285&hsa_grp=56132783641&hsa_net=adwords&hsa_mt=b&hsa_ver=3&hsa_tgt=kwd-360321395667&gclid=Cj0KCQjw98ujBhCgARIsAD7QeAj4xoQWbv28tzv3T876AqQECjkXIYG1akKr-XE_HJ5VNu6uheeYiwQaAnRCEALw_wcB">News</a></li>
+            <li><a href="file:///G:/c.file/lenovo/Desktop/faakes.html">Contact</a></li>
+            <li><a href="https://www.webwise.ie/teachers/what-is-fake-news/">About</a></li>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="myFunction()">Share <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content" id="myDropdown">
+                    <a href="http://www.facebook.com/">Facebook</a>
+                    <a href="http://www.instagram.com/">Instagram</a>
+                    <a href="http://www.twitter.com/">Twitter</a>
+                </div>
+            </div>
+        </ul>
+    </div>
+
+    <section id="main" class="coloured-section">
+        <div class="container-fluid">
+            <header class="title">
+                <div class="first">
+                    <span class="a1">Fake News Detection</span>
+                </div>
+            </header>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="big-heading">Enter the news below</h1>
+                </div>
+                <div class="col-lg-6 textbox">
+                      <form action="/predict" method="POST">
+                                <input type="text" class="form-rounded col-sm-10 text" placeholder="Paste here" name="message" style="font-size: 1.5rem;"><br>
+                                <button type="submit" name="b1" value="Submit" class="btn btn-primary btn-lg submit-button">Predict</button>
+                                <div class="results">
+                                    {% if prediction == [1] %}
+                                    <h1 style="color:red;">Looking Spam⚠️News📰 </h1>
+                                    {% elif prediction == [0] %}
+                                    <h1 style="color:green;"><b>Looking Real News📰</b></h1>
+                                    {% endif %}
+                                </div>
+                            </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
